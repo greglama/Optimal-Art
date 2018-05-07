@@ -15,15 +15,15 @@ The top left corner pixel of the image is (0, 0).
 Here is the picture the challenge is using:
 ![Alan Turing](http://primers.xyz/problems/0/turing.bmp)
 
-To make it even simpler the challenge's website provides an text file as input.
+To make it even simpler the challenge's website provides a text file as input.
 The first line contains the dimension of the picture `800,600`, and the others lines are the image itself.
 
-The symbole '*' indicates a white pixel and '#' is a black one.
+The symbols '*' indicates a white pixel and '#' is a black one.
 
 Knowing all of this you "just" have to read the file and output an new file with all the operations you would use 
 to re-create the image (one by line).
 
-Here is a link to the challenge (*in french*): http://primers.xyz/0
+Here is a link to the challenge (*in French*): http://primers.xyz/0
 
 ## What did I do ?
 
@@ -35,25 +35,25 @@ Keep in mind that there is exactly 84,784 black pixels on the picture.
 Dichotomy was actually my first thought, the idea behind is that I can reduce the size of the problem to something simpler.
 
 I took in consideration the whole picture and then I asked myself : "Are all the pixel the same ?".
-Obvioulsy the answer was no, so I split the picture into 4 sub-pictures. And I recursively asked the same question until I got
-a sub square of the picture full of black pixel.
+Obliviously the answer was no, so I split the picture into 4 sub-pictures. And I recursively asked the same question until I got
+A sub square of the picture full of black pixel.
 
 In doing so I ended up with squares of sizes : 1, 2, 4, 8, 16, and 32 pixel (powers of 2).
 
 This solution allowed me to get this :
 ![Dichotomy](http://primers.xyz/problems/0/img/343258991124717361524089387826.png)
 
-This is a 10,585 operations solution. Definetly not the best but it works, beside there is originally 84,784 pixels 
+This is a 10,585 operations solution. Definitely not the best but it works, beside there is originally 84,784 pixels 
 so it is approximately 8 times better !
 
 ### Greedy Squares
 
-The principe behind a greedy algorithym is that by taking the optimum choice at each step of the process you are more
-likely to get an optimum solution at the end of the day.
+The principe behind a greedy algorithm is that by taking the optimum choice at each step of the process you are more
+Likely to get an optimum solution at the end of the day.
 This of course hardly outputs _the best solution_ but it can still be very good to get a great solution without too much work.
 
 The principle here is pretty straightforward : find the biggest square on the picture and save it, 
-then erase it from the the picture and go look for the second biggest...
+then erase it from the picture and go look for the second biggest...
 
 This returns a better solution than Dichotomy but also takes a little bit longer (you have to check the whole picture at each step for the squares).
 
